@@ -46,15 +46,29 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/home',
     children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      path: '/home',
+      name: 'Home',
+      component: () => import('@/views/home'),
+      meta: { title: '首页', icon: 'home' }
     }]
   },
-
+  {
+    path: '/solution',
+    component: Layout,
+    children: [{
+      path: '/solution/srs',
+      name: 'SpeechRecognitionSolution',
+      component: () => import('@/views/solution/SpeechRecognitionSolution'),
+      meta: { title: '语音识别', icon: 'speechRecognitionSolution' }
+    }, {
+      path: '/solution/nnnrs',
+      name: 'NNNoiseReductionSolution',
+      component: () => import('@/views/solution/NNNoiseReductionSolution'),
+      meta: { title: 'NN降噪', icon: 'NNNoiseReductionSolution' }
+    }]
+  },
   {
     path: '/example',
     component: Layout,
